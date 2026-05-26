@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Робототехніка та симуляції: micro:bit, Arduino, Tinkercad — STEM-лабораторія</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── SESSION PAGE STYLES ──────────────── */
+.topbar {
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0 2rem;display:flex;align-items:center;gap:8px;height:44px;
+}
+.topbar-link {
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:13px;color:var(--text2);text-decoration:none;
+  border:none;background:none;cursor:pointer;font-family:inherit;
+}
+.topbar-link:hover{color:var(--text1)}
+.topbar-link svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.topbar-sep{font-size:13px;color:var(--border2)}
+.topbar-cur{font-size:13px;color:var(--text1);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+
+.page-wrap{max-width:1080px;margin:0 auto;padding:1.5rem 2rem 4rem;display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start}
+
+/* Main col */
+.proj-header{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:12px}
+.sess-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:500;padding:3px 9px;border-radius:5px;margin-bottom:.75rem;
+  background:var(--blue-l);color:var(--blue-m);
+}
+.sess-badge svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
+.proj-title{font-family:'Geologica',sans-serif;font-size:20px;font-weight:600;color:var(--text1);line-height:1.3;margin-bottom:.625rem}
+.proj-desc{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:1rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap;padding-top:.875rem;border-top:1px solid var(--border)}
+.meta-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2)}
+.meta-item svg{width:15px;height:15px;fill:none;stroke:var(--text3);stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.meta-item b{color:var(--text1);font-weight:500}
+
+.section-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.125rem 1.25rem;margin-bottom:12px}
+.sec-title{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:.875rem;display:flex;align-items:center;gap:7px}
+.sec-title svg{width:15px;height:15px;fill:none;stroke:var(--text3);stroke-width:2;stroke-linecap:round;flex-shrink:0}
+
+.goal-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:6px}
+.goal-dot{width:18px;height:18px;border-radius:50%;background:var(--green-l);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.goal-dot svg{width:10px;height:10px;fill:none;stroke:var(--green);stroke-width:2.5;stroke-linecap:round}
+.goal-text{flex:1}
+
+.step-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.step-row:last-child{border-bottom:none;padding-bottom:0}
+.step-num{width:26px;height:26px;border-radius:7px;background:var(--surface2);font-size:12px;font-weight:500;color:var(--text2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-name{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:2px}
+.step-detail{font-size:12px;color:var(--text2);line-height:1.55}
+
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tool-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-s);background:var(--surface2)}
+.tool-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tool-icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round}
+.tool-name{font-size:12px;font-weight:500;color:var(--text1)}
+.tool-type{font-size:11px;color:var(--text3)}
+
+.adapt-block{background:var(--green-l);border:1px solid #5DCAA5;border-radius:var(--radius-s);padding:.875rem 1rem}
+.adapt-title{font-size:12px;font-weight:500;color:var(--green-m);margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
+.adapt-title svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.adapt-text{font-size:13px;color:var(--green-d);line-height:1.55}
+
+/* Nav bottom */
+.nav-bottom{display:flex;gap:10px;margin-top:4px}
+.nav-btn{flex:1;display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border2);border-radius:var(--radius-s);background:var(--surface);cursor:pointer;text-decoration:none;color:var(--text2);transition:all .15s}
+.nav-btn:hover{border-color:var(--green);background:var(--green-l);color:var(--green-d)}
+.nav-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.nb-prev{justify-content:flex-start}
+.nb-next{justify-content:flex-end;color:var(--green);font-weight:500}
+.nb-label{font-size:11px;color:var(--text3);display:block}
+.nb-name{font-size:13px;font-weight:500}
+
+/* Sidebar */
+.side-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.125rem;margin-bottom:10px}
+.side-title{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:.75rem}
+
+.res-list{display:flex;flex-direction:column;gap:6px}
+.res-item{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--border);border-radius:7px;cursor:pointer;text-decoration:none;transition:all .15s}
+.res-item:hover{border-color:var(--green);background:var(--green-l)}
+.res-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res-icon svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.res-name{font-size:12px;font-weight:500;color:var(--text1)}
+.res-meta{font-size:11px;color:var(--text3)}
+
+.equip-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)}
+.equip-row:last-child{border-bottom:none}
+.equip-name{color:var(--text2)}
+.eb{font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.eb.req{background:var(--green-l);color:var(--green-d)}
+.eb.opt{background:var(--surface2);color:var(--text3)}
+
+.subj-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.spill{font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surface2);color:var(--text2)}
+
+.stag-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.stag{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px}
+
+@media(max-width:760px){
+  .page-wrap{grid-template-columns:1fr;padding:1rem 1.25rem 3rem}
+  .topbar{padding:0 1.25rem}
+  .tools-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">STEM-лабораторія</div>
+        <div class="logo-sub">педагогічних практик</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html#projects">Проєкти</a>
+      <a class="nav-link" href="index.html#about">Про лабораторію</a>
+    </div>
+  </nav>
+</header>
+
+<div class="topbar">
+  <a class="topbar-link" href="index.html"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Усі проєкти</a>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-cur">Заняття 3</span>
+</div>
+
+<div class="page-wrap">
+  <main>
+    <div class="proj-header">
+      <div class="sess-badge">Заняття 3 · Робототехніка · Програмування</div>
+      <h1 class="proj-title">Робототехніка та симуляції: micro:bit, Arduino, Tinkercad</h1>
+      <p class="proj-desc">Заняття присвячено робототехніці та цифровим симуляторам. Педагоги опанували платформи micro:bit та Arduino, навчилися організовувати STEM-діяльність навіть за умов обмеженого матеріально-технічного забезпечення.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Аудиторія: <b>вчителі інформатики, STEM, робототехніки</b></span>
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Тривалість: <b>2–3 год</b></span>
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Формат: <b>очний + дистанційний</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="sec-title">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Цілі заняття
+      </div>
+      <div class="goal-list"><div class="goal-item"><div class="goal-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="goal-text">Опанувати платформи micro:bit та Arduino на базовому рівні</div></div>
+<div class="goal-item"><div class="goal-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="goal-text">Навчитися використовувати симулятор Tinkercad Circuits</div></div>
+<div class="goal-item"><div class="goal-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="goal-text">Написати першу програму для мікроконтролера</div></div>
+<div class="goal-item"><div class="goal-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="goal-text">Освоїти методику організації командної STEM-роботи та оцінювання проєктів</div></div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="sec-title">
+        <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Хід заняття (5 кроків)
+      </div>
+      <div class="step-list"><div class="step-row">
+          <div class="step-num">1</div>
+          <div><div class="step-name">Огляд платформ micro:bit та Arduino</div><div class="step-detail">Порівняння: можливості, вартість, вік учнів, типові завдання. Де краще починати.</div></div>
+        </div>
+<div class="step-row">
+          <div class="step-num">2</div>
+          <div><div class="step-name">Перші програми у Tinkercad Circuits</div><div class="step-detail">Збірка схеми, написання коду, запуск симуляції — повністю онлайн, без жодного заліза.</div></div>
+        </div>
+<div class="step-row">
+          <div class="step-num">3</div>
+          <div><div class="step-name">Програмування micro:bit у MakeCode</div><div class="step-detail">Блоки та JavaScript, завантаження програми на реальний пристрій через браузер.</div></div>
+        </div>
+<div class="step-row">
+          <div class="step-num">4</div>
+          <div><div class="step-name">Командні STEM-завдання</div><div class="step-detail">Групова робота: кожна команда реалізує власний міні-проєкт за 20 хвилин.</div></div>
+        </div>
+<div class="step-row">
+          <div class="step-num">5</div>
+          <div><div class="step-name">Методика та оцінювання</div><div class="step-detail">Критерії оцінювання STEM-проєктів, організація командної роботи на уроці, рефлексія.</div></div>
+        </div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="sec-title">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Цифрові інструменти
+      </div>
+      <div class="tools-grid"><div class="tool-item">
+          <div class="tool-icon" style="background:var(--amber-l);color:var(--amber-m)">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div><div class="tool-name">Tinkercad Circuits</div><div class="tool-type">Симулятор схем онлайн</div></div>
+        </div><div class="tool-item">
+          <div class="tool-icon" style="background:var(--blue-l);color:var(--blue-m)">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div><div class="tool-name">MakeCode</div><div class="tool-type">Середовище для micro:bit</div></div>
+        </div><div class="tool-item">
+          <div class="tool-icon" style="background:var(--teal-l);color:var(--teal-m)">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div><div class="tool-name">Arduino IDE</div><div class="tool-type">Середовище програмування</div></div>
+        </div></div>
+    </div>
+
+    <div class="section-card">
+      <div class="sec-title">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Як адаптувати без обладнання
+      </div>
+      <div class="adapt-block">
+        <div class="adapt-title">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Варіант для шкіл без спецобладнання
+        </div>
+        <div class="adapt-text">Заняття розроблено з урахуванням шкіл без обладнання: Tinkercad Circuits і MakeCode — безкоштовні онлайн-сервіси у будь-якому браузері. Реальний micro:bit або Arduino бажані, але не обов'язкові.</div>
+      </div>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="session-2.html" class="nav-btn nb-prev"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><div><span class="nb-label">Попереднє</span><span class="nb-name">Розумний будинок: SMART-технології</span></div></a>
+      <a href="session-4.html" class="nav-btn nb-next"><div><span class="nb-label">Наступне</span><span class="nb-name">Codey Rocky у STEM-освіті</span></div><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </main>
+
+  <aside>
+    <div class="side-card">
+      <div class="side-title">Матеріали до заняття</div>
+      <div class="res-list"><a class="res-item" href="#">
+          <div class="res-icon" style="background:var(--green-l);color:var(--green-m)"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+          <div><div class="res-name">Презентація заняття</div><div class="res-meta">Google Drive · PDF</div></div>
+        </a><a class="res-item" href="#">
+          <div class="res-icon" style="background:var(--green-l);color:var(--green-m)"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+          <div><div class="res-name">Інструкція MakeCode для початківців</div><div class="res-meta">Google Drive · DOCX</div></div>
+        </a><a class="res-item" href="https://www.tinkercad.com" target="_blank" rel="noopener">
+          <div class="res-icon" style="background:var(--blue-l);color:var(--blue-m)"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+          <div><div class="res-name">Tinkercad — симулятор</div><div class="res-meta">Онлайн, безкоштовно</div></div>
+        </a><a class="res-item" href="https://makecode.microbit.org" target="_blank" rel="noopener">
+          <div class="res-icon" style="background:var(--blue-l);color:var(--blue-m)"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+          <div><div class="res-name">MakeCode для micro:bit</div><div class="res-meta">Онлайн, безкоштовно</div></div>
+        </a></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Обладнання</div>
+      <div class="equip-list"><div class="equip-row"><span class="equip-name">Комп'ютер / ноутбук</span><span class="eb req">обов'язково</span></div><div class="equip-row"><span class="equip-name">Інтернет</span><span class="eb req">обов'язково</span></div><div class="equip-row"><span class="equip-name">micro:bit або Arduino</span><span class="eb opt">опційно</span></div></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Предмети</div>
+      <div class="subj-wrap"><span class="spill">Інформатика</span> <span class="spill">Фізика</span> <span class="spill">Математика</span> <span class="spill">Технології</span></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Теги</div>
+      <div class="stag-wrap"><span class="stag" style="background:var(--blue-l);color:var(--blue-m)">Arduino</span><span class="stag" style="background:var(--green-l);color:var(--green-d)">micro:bit</span><span class="stag" style="background:var(--amber-l);color:var(--amber-m)">Tinkercad</span></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Рівень складності</div>
+      
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:4px">
+        <span style="color:var(--text2)">Технічна складність</span>
+        <span style="font-weight:500;color:var(--text1)">Середня</span>
+      </div>
+      <div style="height:5px;background:var(--surface3);border-radius:3px;margin-bottom:10px">
+        <div style="width:50%;height:100%;background:var(--amber-m);border-radius:3px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:4px">
+        <span style="color:var(--text2)">Залучення учнів</span>
+        <span style="font-weight:500;color:var(--text1)">Висока</span>
+      </div>
+      <div style="height:5px;background:var(--surface3);border-radius:3px;margin-bottom:10px">
+        <div style="width:80%;height:100%;background:var(--coral-m);border-radius:3px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:4px">
+        <span style="color:var(--text2)">Потреба в обладнанні</span>
+        <span style="font-weight:500;color:var(--text1)">Середня</span>
+      </div>
+      <div style="height:5px;background:var(--surface3);border-radius:3px;margin-bottom:10px">
+        <div style="width:40%;height:100%;background:var(--amber-m);border-radius:3px"></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <p>STEM-лабораторія педагогічних практик · Запорізька область · 2024–2025</p>
+</footer>
+
+</body>
+</html>
