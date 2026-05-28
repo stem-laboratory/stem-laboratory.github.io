@@ -1,365 +1,913 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEM-лабораторія педагогічних практик</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-/* ── INDEX-ONLY STYLES ─────────────────── */
-.hero {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 3rem 2rem 2.5rem;
-}
-.hero-inner { max-width: 1080px; margin: 0 auto; }
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--green-l); color: var(--green-d);
-  font-size: 12px; font-weight: 500;
-  padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem;
-}
-.hero-tag svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-h1 {
-  font-family: 'Geologica', sans-serif;
-  font-size: clamp(24px, 4vw, 34px); font-weight: 600;
-  line-height: 1.2; color: var(--text1); margin-bottom: .875rem;
-}
-h1 em { font-style: normal; color: var(--green); }
-.hero-desc {
-  font-size: 15px; color: var(--text2);
-  line-height: 1.7; max-width: 580px; margin-bottom: 2rem;
-}
-.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
-.stat-num { font-family: 'Geologica', sans-serif; font-size: 26px; font-weight: 600; color: var(--text1); }
-.stat-label { font-size: 12px; color: var(--text3); margin-top: -2px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>STEM-лабораторія педагогічних практик</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Hero + Carousel ──────────────────────────── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--b1)
+    }
 
-.main-wrap { max-width: 1080px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+    .carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0
+    }
 
-.toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 340px; }
-.search-wrap svg {
-  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
-  width: 15px; height: 15px; fill: none; stroke: var(--text3); stroke-width: 2; stroke-linecap: round;
-  pointer-events: none;
-}
-.search-input {
-  width: 100%; padding: 9px 12px 9px 34px;
-  font-size: 13px; font-family: inherit;
-  border: 1px solid var(--border2); border-radius: var(--radius-s);
-  background: var(--surface); color: var(--text1);
-  outline: none; transition: border-color .15s;
-}
-.search-input::placeholder { color: var(--text3); }
-.search-input:focus { border-color: var(--green); }
-.filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
-.chip {
-  font-size: 12px; font-weight: 500; font-family: inherit;
-  padding: 7px 13px; border-radius: 20px;
-  border: 1px solid var(--border2); background: var(--surface); color: var(--text2);
-  cursor: pointer; transition: all .15s;
-  display: inline-flex; align-items: center; gap: 5px;
-}
-.chip svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-.chip:hover { border-color: var(--green); color: var(--text1); }
-.chip.active { background: var(--green-l); border-color: #5DCAA5; color: var(--green-d); }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .9s ease;
+      background-size: cover;
+      background-position: center
+    }
 
-.section-label {
-  font-size: 11px; font-weight: 500; letter-spacing: .07em;
-  text-transform: uppercase; color: var(--text3); margin-bottom: 1rem;
-}
+    .carousel-slide.active {
+      opacity: 1
+    }
 
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 14px;
-}
-.card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 1.125rem 1.25rem;
-  cursor: pointer; text-decoration: none; color: inherit;
-  display: flex; flex-direction: column;
-  transition: border-color .15s, box-shadow .15s;
-}
-.card:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(29,158,117,.10); }
-.card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .875rem; }
-.card-icon {
-  width: 38px; height: 38px; border-radius: 9px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
-.ci-teal   { background: var(--teal-l);   color: var(--teal-m); }
-.ci-blue   { background: var(--blue-l);   color: var(--blue-m); }
-.ci-amber  { background: var(--amber-l);  color: var(--amber-m); }
-.ci-purple { background: var(--purple-l); color: var(--purple-m); }
-.ci-coral  { background: var(--coral-l);  color: var(--coral-m); }
-.card-num { font-size: 11px; color: var(--text3); font-weight: 500; }
-.card-title { font-family: 'Geologica', sans-serif; font-size: 14px; font-weight: 600; color: var(--text1); line-height: 1.35; margin-bottom: .375rem; }
-.card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; flex: 1; margin-bottom: .875rem; }
-.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-.card-arrow svg { width: 15px; height: 15px; fill: none; stroke: var(--text3); stroke-width: 2; stroke-linecap: round; }
+    .slide-1 {
+      background-color: #1a3525;
+      background-image: url('photos/photo1.png')
+    }
 
-/* Featured */
-.card-featured {
-  grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr;
-  padding: 0; overflow: hidden; flex-direction: unset; align-items: unset;
-}
-.card-featured:hover { border-color: var(--green); box-shadow: 0 4px 20px rgba(29,158,117,.12); }
-.feat-left  { padding: 1.375rem 1.5rem; display: flex; flex-direction: column; }
-.feat-right { padding: 1.375rem 1.5rem; background: var(--surface2); border-left: 1px solid var(--border); }
-.feat-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: var(--green-l); color: var(--green-d);
-  font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 5px; margin-bottom: .625rem;
-}
-.feat-badge svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
-.feat-title { font-family: 'Geologica', sans-serif; font-size: 16px; font-weight: 600; color: var(--text1); line-height: 1.3; margin-bottom: .5rem; }
-.feat-desc  { font-size: 13px; color: var(--text2); line-height: 1.6; flex: 1; margin-bottom: 1rem; }
-.step-label { font-size: 12px; font-weight: 500; color: var(--text3); margin-bottom: .625rem; }
-.step-item  { display: flex; align-items: flex-start; gap: 8px; margin-bottom: .5rem; }
-.step-dot   { width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
-.step-text  { font-size: 13px; color: var(--text2); line-height: 1.45; }
-.feat-meta  { font-size: 12px; color: var(--text3); margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
-.feat-meta strong { color: var(--text1); font-weight: 500; }
+    .slide-2 {
+      background-color: #0d2240;
+      background-image: url('photos/photo2.png')
+    }
 
-.empty-state { grid-column: 1/-1; text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 14px; }
+    .slide-3 {
+      background-color: #2a1a08;
+      background-image: url('photos/photo3.png')
+    }
 
-/* About */
-.about-section { background: var(--surface); border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
-.about-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-.about-label { font-size: 11px; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; color: var(--text3); margin-bottom: .875rem; }
-.about-title { font-family: 'Geologica', sans-serif; font-size: 20px; font-weight: 600; color: var(--text1); margin-bottom: .75rem; }
-.about-text  { font-size: 14px; color: var(--text2); line-height: 1.7; }
-.about-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.about-stat  { background: var(--surface2); border-radius: var(--radius-s); padding: .875rem 1rem; }
-.about-stat.green { background: var(--green-l); }
-.about-stat-num  { font-size: 20px; font-weight: 600; font-family: 'Geologica', sans-serif; color: var(--text1); }
-.about-stat.green .about-stat-num { color: var(--green-d); }
-.about-stat-label { font-size: 12px; color: var(--text3); }
-.about-stat.green .about-stat-label { color: var(--green-m); }
-.about-note  { background: var(--surface2); border-radius: var(--radius-s); padding: .875rem 1rem; grid-column: 1/-1; font-size: 13px; color: var(--text2); line-height: 1.55; }
+    .slide-4 {
+      background-color: #1a1a2a;
+      background-image: url('photos/photo4.png')
+    }
 
-@media (max-width: 700px) {
-  .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
-  .feat-right { border-left: none; border-top: 1px solid var(--border); }
-  .hero { padding: 2rem 1.25rem 1.75rem; }
-  .main-wrap { padding: 1.5rem 1.25rem 3rem; }
-  .about-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-}
-</style>
+    .slide-5 {
+      background-color: #2a0d0d;
+      background-image: url('photos/photo5.png')
+    }
+
+    .slide-6 {
+      background-color: #0d2a1a;
+      background-image: url('photos/photo6.png')
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .45) 60%, rgba(0, 0, 0, .15) 100%);
+      z-index: 1
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2.75rem
+    }
+
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem
+    }
+
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--cs)
+    }
+
+    .tag-txt {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .7);
+      font-weight: 500;
+      letter-spacing: .04em
+    }
+
+    .hero h1 {
+      font-family: 'Geologica', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: .875rem
+    }
+
+    .hero-stem .hs {
+      color: #5DD9A4
+    }
+
+    .hero-stem .ht {
+      color: #88B7E8
+    }
+
+    .hero-stem .he {
+      color: #F5D76E
+    }
+
+    .hero-stem .hm {
+      color: #F08080
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: rgba(255, 255, 255, .8);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 2rem
+    }
+
+    .hero-stats {
+      display: flex;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 10px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .stat {
+      padding: .625rem 1.375rem;
+      text-align: center
+    }
+
+    .stat+.stat {
+      border-left: 1px solid rgba(255, 255, 255, .2)
+    }
+
+    .stat-num {
+      font-family: 'Geologica', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .6)
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 3
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all .3s
+    }
+
+    .carousel-dot.active {
+      background: #fff;
+      width: 18px;
+      border-radius: 3px
+    }
+
+    /* ── Main ────────────────────────────────────── */
+    .main-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 320px
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: var(--t3);
+      stroke-width: 2;
+      stroke-linecap: round;
+      pointer-events: none
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 12px 9px 32px;
+      font-size: 13px;
+      font-family: inherit;
+      border: 1px solid var(--b2);
+      border-radius: var(--rs);
+      background: var(--surf);
+      color: var(--t1);
+      outline: none;
+      transition: border-color .15s
+    }
+
+    .search-input::placeholder {
+      color: var(--t3)
+    }
+
+    .search-input:focus {
+      border-color: var(--cs)
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      padding: 7px 13px;
+      border-radius: 20px;
+      border: 1px solid var(--b2);
+      background: var(--surf);
+      color: var(--t2);
+      cursor: pointer;
+      transition: all .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .chip svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round
+    }
+
+    .chip:hover {
+      border-color: var(--b2);
+      color: var(--t1)
+    }
+
+    .chip.active.f-all {
+      background: var(--purple-l);
+      border-color: #AFA9EC;
+      color: var(--purple-d)
+    }
+
+    .chip.active.f-robot {
+      background: var(--teal-l);
+      border-color: #5DCAA5;
+      color: var(--teal-d)
+    }
+
+    .chip.active.f-prog {
+      background: var(--blue-l);
+      border-color: #85B7EB;
+      color: var(--blue-d)
+    }
+
+    .chip.active.f-3d {
+      background: var(--coral-l);
+      border-color: #F0997B;
+      color: var(--coral-d)
+    }
+
+    .chip.active.f-ai {
+      background: var(--amber-l);
+      border-color: #FAC775;
+      color: var(--amber-d)
+    }
+
+    .chip.active.f-smart {
+      background: var(--pink-l);
+      border-color: #ED93B1;
+      color: var(--pink-d)
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--t3);
+      margin-bottom: 1rem
+    }
+
+    /* ── Grid: 2 в ряд ───────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    /* ── Картка ─────────────────────────────────── */
+    .card {
+      background: var(--surf);
+      border: 1px solid var(--b1);
+      border-radius: var(--r);
+      padding: 1.125rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, box-shadow .15s
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .09);
+      border-color: var(--b2)
+    }
+
+    .card-accent {
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: .875rem
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: .625rem
+    }
+
+    .card-num {
+      font-size: 11px;
+      color: var(--t3);
+      font-weight: 500
+    }
+
+    .card-cat {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 4px
+    }
+
+    .card-title {
+      font-family: 'Geologica', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--t1);
+      line-height: 1.35;
+      margin-bottom: .375rem
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--t2);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: .875rem
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto
+    }
+
+    .card-arrow svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: var(--t3);
+      stroke-width: 2;
+      stroke-linecap: round
+    }
+
+    /* ── Featured card ───────────────────────────── */
+    .card-featured {
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      overflow: hidden
+    }
+
+    .card-featured:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .10)
+    }
+
+    .feat-left {
+      padding: 1.375rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--b1)
+    }
+
+    .feat-right {
+      padding: 1.375rem 1.5rem;
+      background: var(--surf2)
+    }
+
+    .feat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--purple-l);
+      color: var(--purple-d);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 5px;
+      margin-bottom: .625rem
+    }
+
+    .feat-badge svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2
+    }
+
+    .feat-title {
+      font-family: 'Geologica', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--t1);
+      line-height: 1.3;
+      margin-bottom: .5rem
+    }
+
+    .feat-desc {
+      font-size: 13px;
+      color: var(--t2);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1rem
+    }
+
+    .feat-step-lbl {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t3);
+      margin-bottom: .625rem
+    }
+
+    .feat-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin-bottom: .45rem
+    }
+
+    .feat-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple-m);
+      margin-top: 5px;
+      flex-shrink: 0
+    }
+
+    .feat-step-txt {
+      font-size: 13px;
+      color: var(--t2);
+      line-height: 1.45
+    }
+
+    .feat-meta {
+      font-size: 12px;
+      color: var(--t3);
+      margin-top: .75rem;
+      padding-top: .75rem;
+      border-top: 1px solid var(--b1)
+    }
+
+    .feat-meta strong {
+      color: var(--t1);
+      font-weight: 500
+    }
+
+    /* ── About ───────────────────────────────────── */
+    .about-section {
+      background: var(--surf);
+      border-top: 1px solid var(--b1);
+      padding: 2.5rem 2rem
+    }
+
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .about-stat {
+      background: var(--surf2);
+      border-radius: var(--rs);
+      padding: .875rem 1rem
+    }
+
+    .about-stat.g {
+      background: var(--green-l)
+    }
+
+    .about-stat-num {
+      font-size: 20px;
+      font-weight: 600;
+      font-family: 'Geologica', sans-serif;
+      color: var(--t1)
+    }
+
+    .about-stat.g .about-stat-num {
+      color: var(--green-d)
+    }
+
+    .about-stat-lbl {
+      font-size: 12px;
+      color: var(--t3)
+    }
+
+    .about-stat.g .about-stat-lbl {
+      color: var(--green-m)
+    }
+
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--t3);
+      font-size: 14px
+    }
+
+    @media(max-width:700px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .card-featured {
+        grid-template-columns: 1fr
+      }
+
+      .feat-right {
+        border-left: none;
+        border-top: 1px solid var(--b1)
+      }
+
+      .hero-content {
+        padding: 2.5rem 1.25rem 2rem
+      }
+
+      .main-wrap {
+        padding: 1.5rem 1.25rem 3rem
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="logo">
-      <div class="logo-badge">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo-link">
+        <div class="logo-stem">
+          <div class="sl sl-s">S</div>
+          <div class="sl sl-t">T</div>
+          <div class="sl sl-e">E</div>
+          <div class="sl sl-m">M</div>
+        </div>
+        <span class="logo-sub">лабораторія педагогічних практик</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="#projects">Проєкти</a>
+        <a class="nav-link" href="#about">Про лабораторію</a>
       </div>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="carousel">
+      <div class="carousel-slide slide-1 active"></div>
+      <div class="carousel-slide slide-2"></div>
+      <div class="carousel-slide slide-3"></div>
+      <div class="carousel-slide slide-4"></div>
+      <div class="carousel-slide slide-5"></div>
+      <div class="carousel-slide slide-6"></div>
+    </div>
+    <div class="carousel-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <div class="tag-dot"></div><span class="tag-txt">Запорізька область · 2024–2025</span>
+      </div>
+      <h1>Електронна збірка проєктів<br>
+        <span class="hero-stem"><span class="hs">S</span><span class="ht">T</span><span class="he">E</span><span
+            class="hm">M</span></span>-лабораторії педагогічних практик
+      </h1>
+      <p class="hero-desc">Практичні методичні розробки від педагогів-практиків. Робототехніка, 3D-моделювання,
+        програмування та AI-технології — з реальними даними рефлексій учасників.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-lbl">занять</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">25</div>
+          <div class="stat-lbl">педагогів</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.9</div>
+          <div class="stat-lbl">середня оцінка</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4 міс</div>
+          <div class="stat-lbl">роботи</div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <button class="carousel-dot active" onclick="goSlide(0)" aria-label="Слайд 1"></button>
+      <button class="carousel-dot" onclick="goSlide(1)" aria-label="Слайд 2"></button>
+      <button class="carousel-dot" onclick="goSlide(2)" aria-label="Слайд 3"></button>
+      <button class="carousel-dot" onclick="goSlide(3)" aria-label="Слайд 4"></button>
+      <button class="carousel-dot" onclick="goSlide(4)" aria-label="Слайд 5"></button>
+      <button class="carousel-dot" onclick="goSlide(5)" aria-label="Слайд 6"></button>
+    </div>
+  </section>
+
+  <!-- ── MAIN ── -->
+  <main class="main-wrap" id="projects">
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input class="search-input" type="search" id="searchInput" placeholder="Пошук: тема, обладнання, предмет..."
+          autocomplete="off">
+      </div>
+      <div class="filter-group">
+        <button class="chip f-all active" onclick="setFilter('all',this)">Усі</button>
+        <button class="chip f-robot" onclick="setFilter('robotics',this)">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="10" rx="2" />
+            <path d="M12 11V7M8 7h8M7 15h.01M12 15h.01M17 15h.01" />
+          </svg>Робототехніка
+        </button>
+        <button class="chip f-prog" onclick="setFilter('programming',this)">
+          <svg viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>Програмування
+        </button>
+        <button class="chip f-3d" onclick="setFilter('3d',this)">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>3D-моделювання
+        </button>
+        <button class="chip f-ai" onclick="setFilter('ai',this)">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.64Z" />
+            <path
+              d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-1.64Z" />
+          </svg>AI-технології
+        </button>
+        <button class="chip f-smart" onclick="setFilter('smart',this)">
+          <svg viewBox="0 0 24 24">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>Smart Home
+        </button>
+      </div>
+    </div>
+    <p class="section-label" id="resultsLabel">Заняття лабораторії · 5 проєктів</p>
+
+    <div class="grid" id="cardsGrid">
+
+      <!-- ── Featured: Заняття 5 ── -->
+      <a href="projects/session-5.html" class="card card-featured" data-cat="3d ai"
+        data-text="від ідеї до 3d-друку штучний інтелект ai meshy tinkercad принтер моделювання cura luma spline 3d-моделювання">
+        <div class="feat-left">
+          <div
+            style="height:3px;border-radius:2px;margin-bottom:.875rem;background:linear-gradient(90deg,var(--cs),var(--ct),var(--ce),var(--cm))">
+          </div>
+          <div class="feat-badge">
+            <svg viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            5.0/5 — найвища оцінка · Заняття 5
+          </div>
+          <div class="feat-title">Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі</div>
+          <div class="feat-desc">AI-сервіси для генерації 3D-моделей, підготовка до друку у слайсері Cura, практичне
+            виготовлення навчальних об'єктів. 10 учасників — 100% максимальних оцінок.</div>
+          <div class="tags">
+            <span class="tag tag-teal">3D-друк</span>
+            <span class="tag tag-blue">AI-інструменти</span>
+            <span class="tag tag-amber">Meshy.ai · Cura</span>
+          </div>
+        </div>
+        <div class="feat-right">
+          <div class="feat-step-lbl">Що робили педагоги:</div>
+          <div class="feat-step">
+            <div class="feat-dot"></div>
+            <div class="feat-step-txt">Огляд AI-сервісів: Meshy.ai, Maker World, Luma AI</div>
+          </div>
+          <div class="feat-step">
+            <div class="feat-dot"></div>
+            <div class="feat-step-txt">Самостійна генерація навчального об'єкта за промптом</div>
+          </div>
+          <div class="feat-step">
+            <div class="feat-dot"></div>
+            <div class="feat-step-txt">Підготовка моделі до друку у слайсері Cura</div>
+          </div>
+          <div class="feat-step">
+            <div class="feat-dot"></div>
+            <div class="feat-step-txt">Друк та обговорення застосування на уроці</div>
+          </div>
+          <div class="feat-meta">Очікують ↑ мотивацію учнів: <strong>100%</strong> · Рейтинг: <strong>5.0 / 5 ★</strong>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── Заняття 2 ── -->
+      <a href="projects/session-2.html" class="card" data-cat="smart"
+        data-text="розумний будинок smart технології мікроконтролери датчики iot фізика автоматизація arduino esp nanit mbot">
+        <div class="card-accent" style="background:#185FA5"></div>
+        <div class="card-top">
+          <span class="card-num">Заняття 2</span>
+          <span class="card-cat" style="background:var(--pink-l);color:var(--pink-d)">Smart Home</span>
+        </div>
+        <div class="card-title">Розумний будинок: знайомство зі SMART-технологіями</div>
+        <div class="card-desc">Мобільний STEM-хаб гімназії №89. 16 учасників, оцінка 4.8/5. STEM-відповідність — 5/5.
+          Без труднощів: 13/16.</div>
+        <div class="card-footer">
+          <div class="tags"><span class="tag tag-amber">IoT</span><span class="tag tag-blue">Arduino</span></div>
+          <div class="card-arrow"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </div>
+      </a>
+
+      <!-- ── Заняття 3 ── -->
+      <a href="projects/session-3.html" class="card" data-cat="robotics programming"
+        data-text="робототехніка симуляції micro:bit arduino tinkercad circuits мікроконтролери програмування makecode симулятор">
+        <div class="card-accent" style="background:#0F6E56"></div>
+        <div class="card-top">
+          <span class="card-num">Заняття 3</span>
+          <span class="card-cat" style="background:var(--teal-l);color:var(--teal-d)">Робототехніка</span>
+        </div>
+        <div class="card-title">Робототехніка та симуляції: micro:bit, Arduino, Tinkercad</div>
+        <div class="card-desc">14 учасників. Tinkercad зрозумілість 4.5/5. 71% отримали розуміння схемотехніки без
+          реального обладнання.</div>
+        <div class="card-footer">
+          <div class="tags"><span class="tag tag-blue">Arduino</span><span class="tag tag-teal">Tinkercad</span></div>
+          <div class="card-arrow"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </div>
+      </a>
+
+      <!-- ── Заняття 4 ── -->
+      <a href="projects/session-4.html" class="card" data-cat="robotics programming"
+        data-text="codey rocky робот алгоритми програмування інформатика міні-проєкти уроки mblock makeblock перегони">
+        <div class="card-accent" style="background:#534AB7"></div>
+        <div class="card-top">
+          <span class="card-num">Заняття 4</span>
+          <span class="card-cat" style="background:var(--purple-l);color:var(--purple-d)">Робототехніка</span>
+        </div>
+        <div class="card-title">Codey Rocky у STEM-освіті: практичні кейси для уроків</div>
+        <div class="card-desc">9 учасників. Корисність 4.8/5, зрозумілість матеріалу 5.0/5. Планують впровадити: 78%.
+          Труднощів не виникло: 8/9.</div>
+        <div class="card-footer">
+          <div class="tags"><span class="tag tag-purple">Codey Rocky</span><span class="tag tag-amber">mBlock</span>
+          </div>
+          <div class="card-arrow"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </div>
+      </a>
+
+      <!-- ── Заняття 1 ── -->
+      <a href="projects/session-1.html" class="card" data-cat="all"
+        data-text="вектор розвитку stem орієнтири інформатика проєктне навчання алгоритмічне мислення методика нус радар діагностика">
+        <div class="card-accent" style="background:#534AB7"></div>
+        <div class="card-top">
+          <span class="card-num">Заняття 1</span>
+          <span class="card-cat" style="background:var(--green-l);color:var(--green-d)">Методика</span>
+        </div>
+        <div class="card-title">Вектор розвитку: STEM-орієнтири в курсі інформатики</div>
+        <div class="card-desc">25 учасників. STEM-радар: діагностика компетентностей. Найслабша ланка — мікроконтролери
+          (2.6/5). Найзатребуваніша тема — 3D-моделювання (84%).</div>
+        <div class="card-footer">
+          <div class="tags"><span class="tag tag-blue">Методика</span><span class="tag tag-purple">STEM-радар</span>
+          </div>
+          <div class="card-arrow"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </div>
+      </a>
+
+      <div class="empty-state" id="emptyState" style="display:none">
+        Нічого не знайдено. Спробуйте інший запит або фільтр.
+      </div>
+    </div>
+  </main>
+
+  <!-- ── ABOUT ── -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
       <div>
-        <div class="logo-text">STEM-лабораторія</div>
-        <div class="logo-sub">педагогічних практик</div>
+        <div
+          style="font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:.875rem">
+          Про лабораторію</div>
+        <h2
+          style="font-family:'Geologica',sans-serif;font-size:20px;font-weight:600;color:var(--t1);margin-bottom:.75rem">
+          STEM-лабораторія педагогічних практик</h2>
+        <p style="font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:.75rem">Творча група вчителів
+          інформатичної освітньої галузі на базі кафедри STEM-освіти та цифрових технологій КЗ «ЗОІППО» Запорізької
+          обласної ради. Об'єднує вчителів інформатики, робототехніки та STEM-дисциплін.</p>
+        <p style="font-size:14px;color:var(--t2);line-height:1.7">Програма ґрунтується на Концепції розвитку
+          STEM-освіти, Держстандарті базової середньої освіти та підходах НУШ.</p>
       </div>
-    </a>
-    <div class="nav-links">
-      <a class="nav-link active" href="#projects">Проєкти</a>
-      <a class="nav-link" href="#about">Про лабораторію</a>
-    </div>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">
-      <svg viewBox="0 0 24 24"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-      Запорізька область · 2024–2025
-    </div>
-    <h1>Електронна збірка<br><em>STEM-проєктів</em> для вчителів</h1>
-    <p class="hero-desc">Практичні методичні розробки, майстер-класи та кейси від педагогів-практиків. Готові матеріали з робототехніки, 3D-моделювання, програмування та AI-технологій — для впровадження вже завтра на уроці.</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">занять лабораторії</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">напрями STEM</div></div>
-      <div class="stat"><div class="stat-num">4 міс</div><div class="stat-label">роботи групи</div></div>
-    </div>
-  </div>
-</section>
-
-<main class="main-wrap" id="projects">
-  <div class="toolbar">
-    <div class="search-wrap">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input class="search-input" type="search" id="searchInput" placeholder="Пошук: тема, обладнання, предмет..." autocomplete="off">
-    </div>
-    <div class="filter-group">
-      <button class="chip active" onclick="setFilter('all',this)">Усі</button>
-      <button class="chip" onclick="setFilter('robotics',this)">
-        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 11V7M8 7h8M7 15h.01M12 15h.01M17 15h.01"/></svg>Робототехніка
-      </button>
-      <button class="chip" onclick="setFilter('programming',this)">
-        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Програмування
-      </button>
-      <button class="chip" onclick="setFilter('3d',this)">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>3D-моделювання
-      </button>
-      <button class="chip" onclick="setFilter('ai',this)">
-        <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.64Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-1.64Z"/></svg>AI-технології
-      </button>
-      <button class="chip" onclick="setFilter('smart',this)">
-        <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Smart Home
-      </button>
-    </div>
-  </div>
-
-  <p class="section-label" id="resultsLabel">Заняття лабораторії · 5 проєктів</p>
-
-  <div class="grid" id="cardsGrid">
-
-    <!-- Заняття 5 — featured -->
-    <a href="session-5.html" class="card card-featured" data-cat="3d ai" data-text="від ідеї до 3d-друку штучний інтелект ai meshy tinkercad принтер моделювання технології cura luma spline">
-      <div class="feat-left">
-        <div class="feat-badge">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Найбільший інтерес серед педагогів
+      <div class="about-grid">
+        <div class="about-stat">
+          <div class="about-stat-num">25</div>
+          <div class="about-stat-lbl">педагогів-учасників</div>
         </div>
-        <div class="feat-title">Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі</div>
-        <div class="feat-desc">AI-сервіси для генерації 3D-моделей, підготовка до друку у слайсері, практичне виготовлення навчальних об'єктів — повний цикл за одне заняття.</div>
-        <div class="tags">
-          <span class="tag tag-green">3D-друк</span>
-          <span class="tag tag-blue">AI-інструменти</span>
-          <span class="tag tag-amber">Meshy.ai · Cura</span>
+        <div class="about-stat g">
+          <div class="about-stat-num">4.9</div>
+          <div class="about-stat-lbl">середня оцінка занять</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">5</div>
+          <div class="about-stat-lbl">занять лабораторії</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">4 міс</div>
+          <div class="about-stat-lbl">активної роботи</div>
+        </div>
+        <div class="about-stat" style="grid-column:1/-1;font-size:13px;color:var(--t2);line-height:1.55">
+          Заклади освіти Запорізької області — від Запоріжжя до Пологів, Дніпрорудного, Василівки, Оріхова та
+          Степногірська.
         </div>
       </div>
-      <div class="feat-right">
-        <div class="step-label">Що робили педагоги:</div>
-        <div class="step-item"><div class="step-dot"></div><div class="step-text">Огляд AI-сервісів генерації 3D-моделей за текстом та фото</div></div>
-        <div class="step-item"><div class="step-dot"></div><div class="step-text">Самостійна генерація навчального об'єкта</div></div>
-        <div class="step-item"><div class="step-dot"></div><div class="step-text">Підготовка моделі до 3D-друку у слайсері</div></div>
-        <div class="step-item"><div class="step-dot"></div><div class="step-text">Друк та обговорення застосування на уроці</div></div>
-        <div class="feat-meta">Матеріали: <strong>Google Drive</strong> · Обладнання: <strong>3D-принтер + ноутбук</strong></div>
-      </div>
-    </a>
-
-    <!-- Заняття 2 -->
-    <a href="session-2.html" class="card" data-cat="smart" data-text="розумний будинок smart технології мікроконтролери датчики iot фізика автоматизація arduino esp">
-      <div class="card-top">
-        <div class="card-icon ci-amber">
-          <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <span class="card-num">Заняття 2</span>
-      </div>
-      <div class="card-title">Розумний будинок: знайомство зі SMART-технологіями</div>
-      <div class="card-desc">Мікроконтролери, датчики, автоматизовані системи. Інтеграція інформатики, фізики та технологій у проєктній діяльності.</div>
-      <div class="card-footer">
-        <div class="tags"><span class="tag tag-amber">Smart Home</span><span class="tag tag-blue">IoT</span></div>
-        <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </a>
-
-    <!-- Заняття 3 -->
-    <a href="session-3.html" class="card" data-cat="robotics programming" data-text="робототехніка симуляції micro:bit arduino tinkercad мікроконтролери програмування дистанційне makecode">
-      <div class="card-top">
-        <div class="card-icon ci-blue">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 11V7M8 7h8M7 15h.01M12 15h.01M17 15h.01"/></svg>
-        </div>
-        <span class="card-num">Заняття 3</span>
-      </div>
-      <div class="card-title">Робототехніка та симуляції: micro:bit, Arduino, Tinkercad</div>
-      <div class="card-desc">Програмування мікроконтролерів, створення віртуальних моделей. STEM-проєкти навіть без дорогого обладнання — через симулятори.</div>
-      <div class="card-footer">
-        <div class="tags"><span class="tag tag-blue">Arduino</span><span class="tag tag-green">Tinkercad</span></div>
-        <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </a>
-
-    <!-- Заняття 4 -->
-    <a href="session-4.html" class="card" data-cat="robotics programming" data-text="codey rocky робот алгоритми програмування інформатика міні-проєкти уроки mblock makeblock">
-      <div class="card-top">
-        <div class="card-icon ci-teal">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 8H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5h1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-4"/><path d="M9 17v2M15 17v2"/></svg>
-        </div>
-        <span class="card-num">Заняття 4</span>
-      </div>
-      <div class="card-title">Codey Rocky у STEM-освіті: практичні кейси для уроків</div>
-      <div class="card-desc">Алгоритми керування роботом, інтегровані міні-проєкти для уроків інформатики, обмін практичними напрацюваннями педагогів.</div>
-      <div class="card-footer">
-        <div class="tags"><span class="tag tag-green">Codey Rocky</span><span class="tag tag-amber">Алгоритми</span></div>
-        <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </a>
-
-    <!-- Заняття 1 -->
-    <a href="session-1.html" class="card" data-cat="all" data-text="вектор розвитку stem орієнтири інформатика проєктне навчання алгоритмічне мислення критичне методика нова українська школа">
-      <div class="card-top">
-        <div class="card-icon ci-purple">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <span class="card-num">Заняття 1</span>
-      </div>
-      <div class="card-title">Вектор розвитку: STEM-орієнтири в курсі інформатики</div>
-      <div class="card-desc">Тенденції STEM-освіти, інтеграція інформатики з іншими предметами, проєктне навчання, алгоритмічне та критичне мислення учнів.</div>
-      <div class="card-footer">
-        <div class="tags"><span class="tag tag-blue">Методика</span><span class="tag tag-purple">Проєкти</span></div>
-        <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </a>
-
-    <div class="empty-state" id="emptyState" style="display:none">Нічого не знайдено. Спробуйте інший запит або фільтр.</div>
-  </div>
-</main>
-
-<section class="about-section" id="about">
-  <div class="about-inner">
-    <div>
-      <div class="about-label">Про лабораторію</div>
-      <h2 class="about-title">STEM-лабораторія педагогічних практик</h2>
-      <p class="about-text">Творча група вчителів інформатичної освітньої галузі, що функціонує на базі кафедри STEM-освіти та цифрових технологій. Об'єднує вчителів інформатики, STEM-дисциплін, робототехніки та суміжних галузей Запорізької області.</p>
     </div>
-    <div class="about-grid">
-      <div class="about-stat"><div class="about-stat-num">5</div><div class="about-stat-label">занять у змішаному форматі</div></div>
-      <div class="about-stat green"><div class="about-stat-num">4 міс</div><div class="about-stat-label">активної роботи групи</div></div>
-      <div class="about-note">Програма ґрунтується на Концепції розвитку STEM-освіти, Державному стандарті базової середньої освіти та підходах Нової української школи.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer class="site-footer">
-  <p>STEM-лабораторія педагогічних практик · Запорізька область · 2024–2025</p>
-</footer>
+  <footer class="site-footer">
+    <p>STEM-лабораторія педагогічних практик · Запорізька область · 2024–2025</p>
+  </footer>
 
-<script>
-let currentFilter = 'all';
-
-function setFilter(cat, btn) {
-  currentFilter = cat;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  applyFilters();
-}
-
-document.getElementById('searchInput').addEventListener('input', applyFilters);
-
-function applyFilters() {
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  const cards = document.querySelectorAll('#cardsGrid .card');
-  let visible = 0;
-  cards.forEach(card => {
-    const cats = card.dataset.cat || '';
-    const text = (card.dataset.text || '') + ' ' + card.textContent.toLowerCase();
-    const isFeatured = card.classList.contains('card-featured');
-    const catMatch = currentFilter === 'all' || cats.includes(currentFilter);
-    const qMatch = !q || text.includes(q);
-    const show = catMatch && qMatch && !(isFeatured && currentFilter !== 'all' && currentFilter !== '3d' && currentFilter !== 'ai');
-    card.style.display = show ? '' : 'none';
-    if (show) visible++;
-  });
-  document.getElementById('emptyState').style.display = visible === 0 ? '' : 'none';
-  const lbl = document.getElementById('resultsLabel');
-  lbl.textContent = visible === 5 ? 'Заняття лабораторії · 5 проєктів'
-    : `Знайдено: ${visible} ${visible===1?'проєкт':visible<5?'проєкти':'проєктів'}`;
-}
-</script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

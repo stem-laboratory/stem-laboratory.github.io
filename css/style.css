@@ -1,0 +1,215 @@
+/* ═══════════════════════════════════════════════
+   STEM-лабораторія педагогічних практик
+   Головний файл стилів
+   ═══════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Фон та поверхні */
+  --bg:    #f5f4f0;
+  --surf:  #ffffff;
+  --surf2: #f0efe9;
+  --surf3: #e8e7e1;
+
+  /* Бордери */
+  --b1: rgba(0,0,0,.10);
+  --b2: rgba(0,0,0,.18);
+
+  /* Текст */
+  --t1: #1a1a18;
+  --t2: #5a5a55;
+  --t3: #9a9990;
+
+  /* STEM-кольори (літери логотипу) */
+  --cs: #2D9B5F;   /* S — зелений  */
+  --ct: #185FA5;   /* T — синій    */
+  --ce: #C9A800;   /* E — жовтий   */
+  --cm: #C0392B;   /* M — червоний */
+
+  /* Категорійна палітра */
+  --purple-l: #EEEDFE; --purple-m: #534AB7; --purple-d: #26215C;
+  --teal-l:   #E1F5EE; --teal-m:   #0F6E56; --teal-d:   #04342C;
+  --blue-l:   #E6F1FB; --blue-m:   #185FA5; --blue-d:   #042C53;
+  --amber-l:  #FAEEDA; --amber-m:  #854F0B; --amber-d:  #412402;
+  --coral-l:  #FAECE7; --coral-m:  #993C1D; --coral-d:  #4A1B0C;
+  --green-l:  #EAF3DE; --green-m:  #3B6D11; --green-d:  #173404;
+  --pink-l:   #FBEAF0; --pink-m:   #993556; --pink-d:   #4B1528;
+  --red-l:    #FCEBEB; --red-m:    #A32D2D; --red-d:    #501313;
+
+  /* Радіуси */
+  --r:   12px;
+  --rs:   8px;
+  --rxs:  5px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Утиліти ─────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+/* ── Логотип ──────────────────────────────────── */
+.logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-stem { display: flex; align-items: center; gap: 2px; }
+.sl {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: #fff; flex-shrink: 0;
+  font-family: 'Geologica', sans-serif;
+  letter-spacing: 0;
+}
+.sl-s { background: var(--cs); }
+.sl-t { background: var(--ct); }
+.sl-e { background: var(--ce); }
+.sl-m { background: var(--cm); }
+.logo-sub { font-size: 11px; color: var(--t3); margin-left: 8px; padding-left: 8px; border-left: 1px solid var(--b1); }
+
+/* ── Навігація ────────────────────────────────── */
+.site-header {
+  background: var(--surf); border-bottom: 1px solid var(--b1);
+  position: sticky; top: 0; z-index: 200;
+}
+.nav {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 58px;
+}
+.nav-links { display: flex; gap: 2px; }
+.nav-link {
+  font-size: 13px; color: var(--t2); padding: 6px 14px; border-radius: 7px;
+  cursor: pointer; border: none; background: none; font-family: inherit;
+  text-decoration: none; display: inline-block; transition: background .15s, color .15s;
+}
+.nav-link:hover  { background: var(--surf2); color: var(--t1); }
+.nav-link.active { color: var(--cs); font-weight: 500; }
+
+/* ── Теги ─────────────────────────────────────── */
+.tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font-size: 11px; padding: 3px 8px; border-radius: var(--rxs); font-weight: 500; }
+.tag-purple { background: var(--purple-l); color: var(--purple-d); }
+.tag-blue   { background: var(--blue-l);   color: var(--blue-d);   }
+.tag-amber  { background: var(--amber-l);  color: var(--amber-d);  }
+.tag-teal   { background: var(--teal-l);   color: var(--teal-d);   }
+.tag-coral  { background: var(--coral-l);  color: var(--coral-d);  }
+.tag-green  { background: var(--green-l);  color: var(--green-d);  }
+
+/* ── Картки (загальні) ────────────────────────── */
+.card {
+  background: var(--surf); border: 1px solid var(--b1);
+  border-radius: var(--r); text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--b2); }
+.card-accent { height: 3px; border-radius: 2px; margin-bottom: .875rem; }
+
+/* ── Секція-картка (сторінки занять) ─────────── */
+.sec-card {
+  background: var(--surf); border: 1px solid var(--b1);
+  border-radius: var(--r); padding: 1.125rem 1.25rem; margin-bottom: 12px;
+}
+.sec-ttl {
+  font-size: 13px; font-weight: 500; color: var(--t1);
+  margin-bottom: .875rem; display: flex; align-items: center; gap: 7px;
+}
+.sec-ttl svg { width: 15px; height: 15px; fill: none; stroke: var(--t3); stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
+
+/* ── Інфографіка рефлексії ────────────────────── */
+.refl-wrap {
+  background: var(--surf); border: 1px solid var(--b1);
+  border-radius: var(--r); overflow: hidden; margin-top: 14px;
+}
+.refl-header {
+  padding: 1rem 1.375rem; border-bottom: 1px solid var(--b1);
+}
+.refl-label {
+  font-size: 11px; font-weight: 500; letter-spacing: .07em;
+  text-transform: uppercase; margin-bottom: .25rem;
+}
+.refl-title { font-size: 16px; font-weight: 500; color: var(--t1); }
+
+.refl-kpi {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--b1);
+}
+.refl-kpi-item {
+  padding: 1rem; text-align: center; border-right: 1px solid var(--b1);
+}
+.refl-kpi-item:last-child { border-right: none; }
+.refl-kpi-num { font-size: 24px; font-weight: 500; color: var(--t1); font-family: 'Geologica', sans-serif; }
+.refl-kpi-lbl { font-size: 11px; color: var(--t3); margin-top: 2px; }
+
+.refl-body {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--b1);
+}
+.refl-body > div { padding: 1.125rem 1.375rem; }
+.refl-body > div + div { border-left: 1px solid var(--b1); }
+.refl-section-title { font-size: 12px; font-weight: 500; color: var(--t1); margin-bottom: .875rem; }
+
+.refl-bar-row { margin-bottom: 10px; }
+.refl-bar-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--t2); margin-bottom: 4px; }
+.refl-bar-labels span:last-child { font-weight: 500; color: var(--t1); }
+.refl-bar-track { height: 6px; background: var(--surf3); border-radius: 3px; }
+.refl-bar-fill  { height: 100%; border-radius: 3px; }
+
+.refl-check-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 7px; }
+.refl-check-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.refl-check-dot svg { width: 10px; height: 10px; }
+.refl-check-text { font-size: 13px; color: var(--t2); line-height: 1.45; }
+
+.refl-footer {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.refl-footer > div { padding: 1.125rem 1.375rem; }
+.refl-footer > div + div { border-left: 1px solid var(--b1); }
+
+.refl-pct-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.refl-pct-label { font-size: 12px; color: var(--t2); flex: 1; min-width: 0; }
+.refl-pct-bar { width: 100px; height: 5px; background: var(--surf3); border-radius: 3px; flex-shrink: 0; }
+.refl-pct-fill { height: 100%; border-radius: 3px; }
+.refl-pct-val { font-size: 12px; font-weight: 500; color: var(--t1); width: 32px; text-align: right; }
+
+.refl-donut-wrap { display: flex; align-items: center; gap: 14px; }
+.refl-donut-legend { flex: 1; }
+.refl-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--t2); margin-bottom: 6px; }
+.refl-legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+.refl-note { font-size: 12px; color: var(--t3); margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--b1); }
+.refl-note strong { color: var(--t1); font-weight: 500; }
+
+/* ── Футер ───────────────────────────────────── */
+.site-footer {
+  background: var(--surf); border-top: 1px solid var(--b1);
+  padding: 1.25rem 2rem; text-align: center;
+}
+.site-footer p { font-size: 12px; color: var(--t3); }
+
+/* ── Адаптивність ─────────────────────────────── */
+@media (max-width: 760px) {
+  .nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .refl-body  { grid-template-columns: 1fr; }
+  .refl-body > div + div { border-left: none; border-top: 1px solid var(--b1); }
+  .refl-footer { grid-template-columns: 1fr; }
+  .refl-footer > div + div { border-left: none; border-top: 1px solid var(--b1); }
+  .refl-kpi { grid-template-columns: 1fr 1fr; }
+  .refl-kpi-item:nth-child(2) { border-right: none; }
+  .refl-kpi-item:last-child { grid-column: 1/-1; border-top: 1px solid var(--b1); }
+}
