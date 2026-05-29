@@ -94,6 +94,10 @@ body {
 }
 .nav-link:hover  { background: var(--surf2); color: var(--t1); }
 .nav-link.active { color: var(--cs); font-weight: 500; }
+.program {
+  color:var(--cs);
+  text-decoration: none;
+}
 
 /* ── Теги ─────────────────────────────────────── */
 .tags { display: flex; gap: 4px; flex-wrap: wrap; }

@@ -1,151 +1,622 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі — STEM-лабораторія</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <a href="../index.html" class="logo-link">
-      <div class="logo-stem"><div class="sl sl-s">S</div><div class="sl sl-t">T</div><div class="sl sl-e">E</div><div class="sl sl-m">M</div></div>
-      <span class="logo-sub">лабораторія педагогічних практик</span>
-    </a>
-    <div class="nav-links">
-      <a class="nav-link active" href="../index.html#projects">Проєкти</a>
-      <a class="nav-link " href="../index.html#about">Про лабораторію</a>
-    </div>
-  </nav>
-</header>
-<div class="topbar">
-  <a class="tb-link" href="../index.html">
-    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Усі проєкти
-  </a>
-  <span style="font-size:13px;color:var(--b2)">/</span>
-  <span style="font-size:13px;color:var(--t1);font-weight:500">Заняття 5</span>
-</div>
 
-<div class="page-wrap">
-<main>
-  <div class="sec-card">
-    <div style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:5px;margin-bottom:.75rem;background:#FAECE7;color:#4A1B0C">Заняття 5 · AI-технології · 3D-моделювання</div>
-    <h1 style="font-family:'Geologica',sans-serif;font-size:20px;font-weight:600;color:var(--t1);line-height:1.3;margin-bottom:.625rem">Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі</h1>
-    <p style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:1rem">10 учасників. Рейтинг 5.0 / 5 — 100% максимальних оцінок. 100% учасників очікують позитивний вплив на мотивацію учнів. Найбільший ефект — серед усіх занять лабораторії.</p>
-    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;padding-top:.875rem;border-top:1px solid var(--b1)">
-      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        Аудиторія: <b style="color:var(--t1);font-weight:500">вчителі інформатики, STEM, технологій</b></div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Тривалість: <b style="color:var(--t1);font-weight:500">2–3 год</b></div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Формат: <b style="color:var(--t1);font-weight:500">очний</b></div>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі — STEM-лабораторія</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-stem">
+          <div class="sl sl-s">S</div>
+          <div class="sl sl-t">T</div>
+          <div class="sl sl-e">E</div>
+          <div class="sl sl-m">M</div>
+        </div>
+        <span class="logo-sub">лабораторія педагогічних практик</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="../index.html#projects">Проєкти</a>
+        <a class="nav-link " href="../index.html#about">Про лабораторію</a>
+      </div>
+    </nav>
+  </header>
+  <div class="topbar">
+    <a class="tb-link" href="../index.html">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 12H5M12 5l-7 7 7 7" />
+      </svg> Усі проєкти
+    </a>
+    <span style="font-size:13px;color:var(--b2)">/</span>
+    <span style="font-size:13px;color:var(--t1);font-weight:500">Заняття 5</span>
   </div>
-  <div class="sec-card"><div class="sec-ttl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Цілі заняття</div><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:var(--t2);line-height:1.45">Ознайомитися з AI-сервісами генерації 3D-моделей за текстом та зображенням</span></div>
-<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:var(--t2);line-height:1.45">Опанувати підготовку моделей до 3D-друку у слайсері</span></div>
-<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:var(--t2);line-height:1.45">Створити власний навчальний об'єкт для уроку</span></div>
-<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:var(--t2);line-height:1.45">Показати можливості 3D-друку для різних шкільних предметів</span></div></div>
-  <div class="sec-card"><div class="sec-ttl"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Хід заняття (4 кроки)</div><div style="border-top:1px solid var(--b1)"><div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)"><div style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">1</div><div><div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Огляд AI-сервісів</div><div style="font-size:12px;color:var(--t2);line-height:1.55">Demо Meshy.ai, Luma AI, Maker World, Spline. Порівняння: текстовий промпт vs фото-референс.</div></div></div><div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)"><div style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">2</div><div><div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Практична генерація</div><div style="font-size:12px;color:var(--t2);line-height:1.55">Кожен учасник самостійно генерує 3D-модель навчального об'єкта за власним промптом.</div></div></div><div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)"><div style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">3</div><div><div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Підготовка до друку</div><div style="font-size:12px;color:var(--t2);line-height:1.55">Ultimaker Cura: масштабування, підтримки, параметри — все для навчальних моделей.</div></div></div><div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)"><div style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">4</div><div><div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Друк та рефлексія</div><div style="font-size:12px;color:var(--t2);line-height:1.55">Друк виробу, обговорення застосування на уроках різних предметів, формування банку ідей.</div></div></div></div></div>
-  <div class="sec-card"><div class="sec-ttl"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Цифрові інструменти</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)"><div style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Meshy.ai</div><div style="font-size:11px;color:var(--t3)">AI → 3D-модель за текстом</div></div></div><div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)"><div style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Ultimaker Cura</div><div style="font-size:11px;color:var(--t3)">Слайсер для 3D-друку</div></div></div><div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)"><div style="width:28px;height:28px;border-radius:6px;background:#E1F5EE;color:#0F6E56;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Luma AI</div><div style="font-size:11px;color:var(--t3)">Фото → 3D-модель</div></div></div><div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)"><div style="width:28px;height:28px;border-radius:6px;background:#FAEEDA;color:#854F0B;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Spline</div><div style="font-size:11px;color:var(--t3)">3D-редактор у браузері</div></div></div></div></div>
-  <div class="sec-card"><div class="sec-ttl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Як адаптувати без обладнання</div>
-    <div style="background:#FAECE7;border:1px solid #993C1D44;border-radius:var(--rs);padding:.875rem 1rem">
-      <div style="font-size:12px;font-weight:500;color:#993C1D;margin-bottom:.5rem;display:flex;align-items:center;gap:5px">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Варіант для шкіл без спецобладнання</div>
-      <div style="font-size:13px;color:#4A1B0C;line-height:1.55">Без 3D-принтера — зупиніться на цифровій моделі. Готові .stl-файли надішліть до найближчого FabLab. Spline та Tinkercad 3D — повністю онлайн.</div>
-    </div>
-  </div>
-  <div class="refl-wrap">
-  <div class="refl-header" style="background:#FAECE7">
-    <div class="refl-label" style="color:#993C1D">Рефлексія учасників · 10 відповідей</div>
-    <div class="refl-title">Заняття «Від ідеї до 3D-друку за 20 хвилин»</div>
-  </div>
-  <div class="refl-kpi">
-    <div class="refl-kpi-item"><div class="refl-kpi-num" style="color:var(--t1)">10</div><div class="refl-kpi-lbl">учасників</div></div>
-    <div class="refl-kpi-item"><div class="refl-kpi-num" style="color:#993C1D">5.0 ★</div><div class="refl-kpi-lbl">максимальна оцінка</div></div>
-    <div class="refl-kpi-item"><div class="refl-kpi-num" style="color:#993C1D">100%</div><div class="refl-kpi-lbl">позитивних вражень</div></div>
-  </div>
-  <div class="refl-body">
-    <div>
-      <div class="refl-section-title">Який етап виявився найскладнішим?</div>
-      <div style="display:flex;align-items:center;gap:16px">
-        <svg width="110" height="110" viewBox="0 0 36 36">
-          <circle r="15.9" cx="18" cy="18" fill="none" stroke="#2D9B5F" stroke-width="3.8" stroke-dasharray="50 100" stroke-dashoffset="25" transform="rotate(-90 18 18)"/><circle r="15.9" cx="18" cy="18" fill="none" stroke="#185FA5" stroke-width="3.8" stroke-dasharray="20 100" stroke-dashoffset="75" transform="rotate(-90 18 18)"/><circle r="15.9" cx="18" cy="18" fill="none" stroke="#993C1D" stroke-width="3.8" stroke-dasharray="20 100" stroke-dashoffset="55" transform="rotate(-90 18 18)"/><circle r="15.9" cx="18" cy="18" fill="none" stroke="#C9A800" stroke-width="3.8" stroke-dasharray="10 100" stroke-dashoffset="35" transform="rotate(-90 18 18)"/>
-        </svg>
-        <div class="refl-donut-legend">
-          <div class="refl-legend-item"><div class="refl-legend-dot" style="background:#2D9B5F"></div>Усе легко — 5 / 10</div><div class="refl-legend-item"><div class="refl-legend-dot" style="background:#185FA5"></div>Налаштування слайсера — 2 / 10</div><div class="refl-legend-item"><div class="refl-legend-dot" style="background:#993C1D"></div>Робота з принтером — 2 / 10</div><div class="refl-legend-item"><div class="refl-legend-dot" style="background:#C9A800"></div>Формулювання промпту — 1 / 10</div>
+
+  <div class="page-wrap">
+    <main>
+      <div class="sec-card">
+        <div
+          style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:5px;margin-bottom:.75rem;background:#FAECE7;color:#4A1B0C">
+          Заняття 5 · AI-технології · 3D-моделювання</div>
+        <h1
+          style="font-family:'Geologica',sans-serif;font-size:20px;font-weight:600;color:var(--t1);line-height:1.3;margin-bottom:.625rem">
+          Від ідеї до 3D-друку за 20 хвилин: як вчителю створювати навчальні моделі</h1>
+        <p style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:1rem">15 учасників. Рейтинг 5.0 / 5 —
+          100% максимальних оцінок. 100% учасників очікують позитивний вплив на мотивацію учнів. Найбільший ефект —
+          серед усіх занять лабораторії.</p>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;padding-top:.875rem;border-top:1px solid var(--b1)">
+          <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+            Аудиторія: <b style="color:var(--t1);font-weight:500">вчителі інформатики, STEM, технологій</b>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Формат: <b style="color:var(--t1);font-weight:500">очний</b>
+          </div>
         </div>
       </div>
-      <div class="refl-section-title" style="margin-top:1rem">Впевненість повторити самостійно</div>
-      <div class="refl-bar-row">
-      <div class="refl-bar-labels"><span>Так, готовий/а</span><span>30%</span></div>
-      <div class="refl-bar-track"><div class="refl-bar-fill" style="width:30%;background:#993C1D"></div></div>
-    </div>
-      <div class="refl-bar-row">
-      <div class="refl-bar-labels"><span>Потребую ще трохи практики</span><span>70%</span></div>
-      <div class="refl-bar-track"><div class="refl-bar-fill" style="width:70%;background:#C9A800"></div></div>
-    </div>
-    </div>
-    <div>
-      <div class="refl-section-title">WOW-ефект заняття</div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="refl-check-text">Швидке перетворення ідеї в 3D-модель</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="refl-check-text">AI-сервіси Meshy.ai та Maker World</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="refl-check-text">Бібліотеки готових 3D-моделей для уроків</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="refl-check-text">Сам процес 3D-друку — від файлу до виробу</div></div>
-      <div class="refl-section-title" style="margin-top:1rem">Де планують використати</div>
-      <div class="refl-pct-row">
-      <span class="refl-pct-label">Інформатика</span>
-      <div class="refl-pct-bar"><div class="refl-pct-fill" style="width:80%;background:#993C1D"></div></div>
-      <span class="refl-pct-val">80%</span>
-    </div>
-      <div class="refl-pct-row">
-      <span class="refl-pct-label">Технологія / STEM</span>
-      <div class="refl-pct-bar"><div class="refl-pct-fill" style="width:60%;background:#993C1D"></div></div>
-      <span class="refl-pct-val">60%</span>
-    </div>
-      <div class="refl-pct-row">
-      <span class="refl-pct-label">Природничі предмети (фіз., біол., хім.)</span>
-      <div class="refl-pct-bar"><div class="refl-pct-fill" style="width:30%;background:#993C1D"></div></div>
-      <span class="refl-pct-val">30%</span>
-    </div>
-      <div class="refl-pct-row">
-      <span class="refl-pct-label">Математика</span>
-      <div class="refl-pct-bar"><div class="refl-pct-fill" style="width:20%;background:#993C1D"></div></div>
-      <span class="refl-pct-val">20%</span>
-    </div>
-    </div>
-  </div>
-  <div class="refl-footer">
-    <div>
-      <div class="refl-section-title">Головні бар'єри для впровадження</div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="refl-check-text">Відсутність / несправність 3D-принтера (9 / 10)</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="refl-check-text">Брак часу на уроці для повного циклу (4 / 10)</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="refl-check-text">Потужність шкільних комп'ютерів (3 / 10)</div></div>
-      <div class="refl-check-item"><div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="refl-check-text">Тривалий процес залучення учнів (3 / 10)</div></div>
-    </div>
-    <div>
-      <div class="refl-section-title">Вплив на мотивацію учнів</div>
-      <div style="text-align:center;padding:1rem 0">
-        <div style="font-size:36px;font-weight:600;color:#993C1D;font-family:'Geologica',sans-serif">100%</div>
-        <div style="font-size:13px;color:var(--t2);margin-top:.25rem">учасників очікують<br>позитивний вплив на мотивацію</div>
+      <div class="sec-card">
+        <div class="sec-ttl"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4M12 16h.01" />
+          </svg>Цілі заняття</div>
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px">
+          <div
+            style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div><span style="font-size:13px;color:var(--t2);line-height:1.45">Ознайомитися з AI-сервісами
+            генерації 3D-моделей за текстом та зображенням</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px">
+          <div
+            style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div><span style="font-size:13px;color:var(--t2);line-height:1.45">Опанувати підготовку моделей до
+            3D-друку у слайсері</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px">
+          <div
+            style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div><span style="font-size:13px;color:var(--t2);line-height:1.45">Створити власний навчальний об'єкт
+            для уроку</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px">
+          <div
+            style="width:18px;height:18px;border-radius:50%;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="3"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div><span style="font-size:13px;color:var(--t2);line-height:1.45">Показати можливості 3D-друку для
+            різних шкільних предметів</span>
+        </div>
       </div>
-      <div style="border-left:3px solid #993C1D;padding:.5rem .875rem;font-size:13px;color:var(--t2);font-style:italic;line-height:1.55;margin-top:.75rem">"«Я можу придумати та створити будь-що» — саме цей ефект очікують педагоги від своїх учнів"</div>
-    </div>
+      <div class="sec-card">
+        <div class="sec-ttl"><svg viewBox="0 0 24 24">
+            <line x1="8" y1="6" x2="21" y2="6" />
+            <line x1="8" y1="12" x2="21" y2="12" />
+            <line x1="8" y1="18" x2="21" y2="18" />
+            <line x1="3" y1="6" x2="3.01" y2="6" />
+            <line x1="3" y1="12" x2="3.01" y2="12" />
+            <line x1="3" y1="18" x2="3.01" y2="18" />
+          </svg>Хід заняття (4 кроки)</div>
+        <div style="border-top:1px solid var(--b1)">
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)">
+            <div
+              style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+              1</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Від ідеї до ескізу</div>
+              <div style="font-size:12px;color:var(--t2);line-height:1.55">Кожен учасник самостійно генерує 2D
+                зображення для референсу.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)">
+            <div
+              style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+              2</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Огляд AI-сервісів</div>
+              <div style="font-size:12px;color:var(--t2);line-height:1.55"><a class="program"
+                  href="https://makerworld.com/uk/3d-models" target="_blank">Maker World</a>, <a class="program"
+                  href="https://makerworld.com/uk/makerlab" target="_blank">Maker Lab</a>, <a class="program"
+                  href="https://meshy.ai/" target="_blank">Meshy</a>, <a class="program" href="https://hitem3d.ai/"
+                  target="_blank">Hitem3D.ai</a>, <a class="program" href="https://tripo3d.ai/"
+                  target="_blank">Tripo</a>.
+                Порівняння: текстовий промпт vs фото-референс.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)">
+            <div
+              style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+              3</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Практична генерація</div>
+              <div style="font-size:12px;color:var(--t2);line-height:1.55">Кожен учасник самостійно <a class="program"
+                  href="https://makerworld.com/uk/makerlab/imageTo3d?from=makerlab" target="_blank">генерує</a>
+                3D-модель
+                навчального об'єкта за власним промптом.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)">
+            <div
+              style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+              4</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Підготовка до друку</div>
+              <div style="font-size:12px;color:var(--t2);line-height:1.55"><a class="program"
+                  href="https://ultimaker.com/software/ultimaker-cura/" target="_blank">Ultimaker Cura</a>:
+                масштабування, підтримки, параметри — все для навчальних моделей.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--b1)">
+            <div
+              style="width:26px;height:26px;border-radius:7px;background:var(--surf2);font-size:12px;font-weight:500;color:var(--t2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+              5</div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px">Друк та рефлексія</div>
+              <div style="font-size:12px;color:var(--t2);line-height:1.55">Друк виробу, обговорення застосування на
+                уроках різних предметів, формування банку ідей.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-ttl"><svg viewBox="0 0 24 24">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>Цифрові інструменти</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div
+            style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)">
+            <div
+              style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:500;color:var(--t1)">Maker World</div>
+              <div style="font-size:11px;color:var(--t3)">Готові моделі</div>
+            </div>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)">
+            <div
+              style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:500;color:var(--t1)">Ultimaker Cura</div>
+              <div style="font-size:11px;color:var(--t3)">Слайсер для 3D-друку</div>
+            </div>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)">
+            <div
+              style="width:28px;height:28px;border-radius:6px;background:#E1F5EE;color:#0F6E56;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:500;color:var(--t1)">Maker Lab</div>
+              <div style="font-size:11px;color:var(--t3)">Зображення → 3D-модель</div>
+            </div>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--b1);border-radius:8px;background:var(--surf2)">
+            <div
+              style="width:28px;height:28px;border-radius:6px;background:#FAEEDA;color:#854F0B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:500;color:var(--t1)">Spline</div>
+              <div style="font-size:11px;color:var(--t3)">3D-редактор у браузері</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-ttl"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4M12 16h.01" />
+          </svg>Як адаптувати без обладнання</div>
+        <div style="background:#FAECE7;border:1px solid #993C1D44;border-radius:var(--rs);padding:.875rem 1rem">
+          <div
+            style="font-size:12px;font-weight:500;color:#993C1D;margin-bottom:.5rem;display:flex;align-items:center;gap:5px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Варіант для шкіл без спецобладнання
+          </div>
+          <div style="font-size:13px;color:#4A1B0C;line-height:1.55">Без 3D-принтера — зупиніться на цифровій моделі.
+            Готові .stl-файли надішліть до найближчого FabLab. Spline та Tinkercad 3D — повністю онлайн.</div>
+        </div>
+      </div>
+      <div class="refl-wrap">
+        <div class="refl-header" style="background:#FAECE7">
+          <div class="refl-label" style="color:#993C1D">Рефлексія учасників · 15 відповідей</div>
+          <div class="refl-title">Заняття «Від ідеї до 3D-друку за 20 хвилин»</div>
+        </div>
+        <div class="refl-kpi">
+          <div class="refl-kpi-item">
+            <div class="refl-kpi-num" style="color:var(--t1)">15</div>
+            <div class="refl-kpi-lbl">учасників</div>
+          </div>
+          <div class="refl-kpi-item">
+            <div class="refl-kpi-num" style="color:#993C1D">5.0 ★</div>
+            <div class="refl-kpi-lbl">максимальна оцінка</div>
+          </div>
+          <div class="refl-kpi-item">
+            <div class="refl-kpi-num" style="color:#993C1D">100%</div>
+            <div class="refl-kpi-lbl">позитивних вражень</div>
+          </div>
+        </div>
+        <div class="refl-body">
+          <div>
+            <div class="refl-section-title">Який етап виявився найскладнішим?</div>
+            <div style="display:flex;align-items:center;gap:16px">
+              <svg width="110" height="110" viewBox="0 0 36 36">
+                <circle r="15.9" cx="18" cy="18" fill="none" stroke="#2D9B5F" stroke-width="3.8"
+                  stroke-dasharray="70 100" stroke-dashoffset="25" transform="rotate(-110 18 18)" />
+                <circle r="15.9" cx="18" cy="18" fill="none" stroke="#185FA5" stroke-width="3.8"
+                  stroke-dasharray="18 100" stroke-dashoffset="75" transform="rotate(-90 18 18)" />
+                <circle r="15.9" cx="18" cy="18" fill="none" stroke="#993C1D" stroke-width="3.8"
+                  stroke-dasharray="18 100" stroke-dashoffset="55" transform="rotate(-90 18 18)" />
+                <circle r="15.9" cx="18" cy="18" fill="none" stroke="#C9A800" stroke-width="3.8"
+                  stroke-dasharray="5 100" stroke-dashoffset="35" transform="rotate(320 18 18)" />
+              </svg>
+              <div class="refl-donut-legend">
+                <div class="refl-legend-item">
+                  <div class="refl-legend-dot" style="background:#2D9B5F"></div>Усе легко — 8/15
+                </div>
+                <div class="refl-legend-item">
+                  <div class="refl-legend-dot" style="background:#185FA5"></div>Налаштування слайсера — 3/15
+                </div>
+                <div class="refl-legend-item">
+                  <div class="refl-legend-dot" style="background:#993C1D"></div>Робота з принтером — 3/15
+                </div>
+                <div class="refl-legend-item">
+                  <div class="refl-legend-dot" style="background:#C9A800"></div>Формулювання промпту — 2/15
+                </div>
+              </div>
+            </div>
+            <div class="refl-section-title" style="margin-top:1rem">Впевненість повторити самостійно</div>
+            <div class="refl-bar-row">
+              <div class="refl-bar-labels"><span>Так, готовий/а</span><span>30%</span></div>
+              <div class="refl-bar-track">
+                <div class="refl-bar-fill" style="width:30%;background:#993C1D"></div>
+              </div>
+            </div>
+            <div class="refl-bar-row">
+              <div class="refl-bar-labels"><span>Потребую ще трохи практики</span><span>70%</span></div>
+              <div class="refl-bar-track">
+                <div class="refl-bar-fill" style="width:70%;background:#C9A800"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="refl-section-title">WOW-ефект заняття</div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#993C1D" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              <div class="refl-check-text">Швидке перетворення ідеї в 3D-модель</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#993C1D" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              <div class="refl-check-text">AI-сервіси Maker Lab та Maker World</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#993C1D" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              <div class="refl-check-text">Бібліотеки готових 3D-моделей для уроків</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FAECE7"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#993C1D" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg></div>
+              <div class="refl-check-text">Сам процес 3D-друку — від файлу до виробу</div>
+            </div>
+            <div class="refl-section-title" style="margin-top:1rem">Де планують використати</div>
+            <div class="refl-pct-row">
+              <span class="refl-pct-label">Інформатика</span>
+              <div class="refl-pct-bar">
+                <div class="refl-pct-fill" style="width:80%;background:#993C1D"></div>
+              </div>
+              <span class="refl-pct-val">80%</span>
+            </div>
+            <div class="refl-pct-row">
+              <span class="refl-pct-label">Технологія / STEM</span>
+              <div class="refl-pct-bar">
+                <div class="refl-pct-fill" style="width:60%;background:#993C1D"></div>
+              </div>
+              <span class="refl-pct-val">60%</span>
+            </div>
+            <div class="refl-pct-row">
+              <span class="refl-pct-label">Природничі предмети (фіз., біол., хім.)</span>
+              <div class="refl-pct-bar">
+                <div class="refl-pct-fill" style="width:30%;background:#993C1D"></div>
+              </div>
+              <span class="refl-pct-val">30%</span>
+            </div>
+            <div class="refl-pct-row">
+              <span class="refl-pct-label">Математика</span>
+              <div class="refl-pct-bar">
+                <div class="refl-pct-fill" style="width:20%;background:#993C1D"></div>
+              </div>
+              <span class="refl-pct-val">20%</span>
+            </div>
+          </div>
+        </div>
+        <div class="refl-footer">
+          <div>
+            <div class="refl-section-title">Головні бар'єри для впровадження</div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#C0392B" stroke-width="3" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></div>
+              <div class="refl-check-text">Відсутність / несправність 3D-принтера (13/15)</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#C0392B" stroke-width="3" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></div>
+              <div class="refl-check-text">Брак часу на уроці для повного циклу (6/15)</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#C0392B" stroke-width="3" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></div>
+              <div class="refl-check-text">Потужність шкільних комп'ютерів (4/15)</div>
+            </div>
+            <div class="refl-check-item">
+              <div class="refl-check-dot" style="background:#FCEBEB"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="#C0392B" stroke-width="3" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></div>
+              <div class="refl-check-text">Тривалий процес залучення учнів (4/15)</div>
+            </div>
+          </div>
+          <div>
+            <div class="refl-section-title">Вплив на мотивацію учнів</div>
+            <div style="text-align:center;padding:1rem 0">
+              <div style="font-size:36px;font-weight:600;color:#993C1D;font-family:'Geologica',sans-serif">100%</div>
+              <div style="font-size:13px;color:var(--t2);margin-top:.25rem">учасників очікують<br>позитивний вплив на
+                мотивацію</div>
+            </div>
+            <div
+              style="border-left:3px solid #993C1D;padding:.5rem .875rem;font-size:13px;color:var(--t2);font-style:italic;line-height:1.55;margin-top:.75rem">
+              "Я можу придумати та створити будь-що" — саме цей ефект очікують педагоги від своїх учнів</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:14px"><a href="session-4.html"
+          style="flex:1;display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--b2);border-radius:var(--rs);background:var(--surf);text-decoration:none;color:var(--t2);transition:all .15s"
+          onmouseover="this.style.background='#FAECE7'" onmouseout="this.style.background='#fff'"><svg width="16"
+            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          <div><span style="font-size:11px;color:var(--t3);display:block">Попереднє</span><span
+              style="font-size:13px;font-weight:500">Codey Rocky</span></div>
+        </a><a href="../index.html"
+          style="flex:1;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:10px 14px;border:1px solid var(--b2);border-radius:var(--rs);background:var(--surf);text-decoration:none;color:#993C1D;font-weight:500">
+          <div style="text-align:right"><span style="font-size:11px;color:var(--t3);display:block;font-weight:400">До
+              каталогу</span><span style="font-size:13px">Усі проєкти</span></div><svg width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a></div>
+    </main>
+    <aside>
+      <div class="sec-card">
+        <div class="side-ttl">Матеріали до заняття</div><a
+          href="https://prezi.com/view/s71eMlXsMqTcYUwZyenx/?referral_token=M4N1EPlnB3FN" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s"
+          onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'">
+          <div
+            style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--t1)">Презентація заняття</div>
+            <div style="font-size:11px;color:var(--t3)">prezi.com, 25 слайдів</div>
+          </div>
+        </a><a href="../doc/Інструкція зі слайсингу в Cura.pdf" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s"
+          onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'">
+          <div
+            style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--t1)">Інструкція зі слайсингу в Cura</div>
+            <div style="font-size:11px;color:var(--t3)">документ PDF</div>
+          </div>
+        </a><a href="https://www.meshy.ai" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s"
+          onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'">
+          <div
+            style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--t1)">Meshy.ai</div>
+            <div style="font-size:11px;color:var(--t3)">AI-генерація 3D онлайн</div>
+          </div>
+        </a><a href="https://ultimaker.com/software/ultimaker-cura" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s"
+          onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'">
+          <div
+            style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--t1)">Ultimaker Cura</div>
+            <div style="font-size:11px;color:var(--t3)">Безкоштовний слайсер</div>
+          </div>
+        </a><a href="#"
+          style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s"
+          onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'">
+          <div
+            style="width:28px;height:28px;border-radius:6px;background:#FAEEDA;color:#854F0B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <polygon points="23 7 16 12 23 17 23 7" />
+              <rect x="1" y="5" width="15" height="14" rx="2" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--t1)">Відеозапис майстер-класу</div>
+            <div style="font-size:11px;color:var(--t3)">YouTube · 47 хв</div>
+          </div>
+        </a>
+      </div>
+      <div class="sec-card">
+        <div class="side-ttl">Обладнання</div>
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)">
+          <span style="color:var(--t2)">3D-принтер</span><span
+            style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span>
+        </div>
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)">
+          <span style="color:var(--t2)">Комп'ютер / ноутбук</span><span
+            style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span>
+        </div>
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)">
+          <span style="color:var(--t2)">Інтернет</span><span
+            style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span>
+        </div>
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)">
+          <span style="color:var(--t2)">Смартфон / камера</span><span
+            style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:var(--surf2);color:var(--t3)">опційно</span>
+        </div>
+      </div>
+      <div class="sec-card">
+        <div class="side-ttl">Предмети</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px"><span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Інформатика</span>
+          <span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Технології</span>
+          <span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Фізика</span>
+          <span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Математика</span>
+          <span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Біологія</span>
+          <span
+            style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Мистецтво</span>
+        </div>
+      </div>
+      <div class="sec-card">
+        <div class="side-ttl">Теги</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px"><span
+            style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#E1F5EE;color:#04342C">3D-друк</span>
+          <span
+            style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#E6F1FB;color:#042C53">AI-інструменти</span>
+          <span
+            style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#FAEEDA;color:#412402">Meshy.ai</span>
+        </div>
+      </div>
+      <div class="sec-card">
+        <div class="side-ttl">Рівень складності</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px">
+          <span>Технічна складність</span><span style="font-weight:500;color:var(--t1)">Середня</span>
+        </div>
+        <div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px">
+          <div style="width:50%;height:100%;background:var(--amber-m);border-radius:3px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px">
+          <span>Залучення учнів</span><span style="font-weight:500;color:var(--t1)">Висока</span>
+        </div>
+        <div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px">
+          <div style="width:90%;height:100%;background:var(--coral-m);border-radius:3px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px">
+          <span>Потреба в обладнанні</span><span style="font-weight:500;color:var(--t1)">Середня</span>
+        </div>
+        <div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px">
+          <div style="width:60%;height:100%;background:var(--amber-m);border-radius:3px"></div>
+        </div>
+      </div>
+    </aside>
   </div>
-</div>
-  <div style="display:flex;gap:10px;margin-top:14px"><a href="session-4.html" style="flex:1;display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--b2);border-radius:var(--rs);background:var(--surf);text-decoration:none;color:var(--t2);transition:all .15s" onmouseover="this.style.background='#FAECE7'" onmouseout="this.style.background='#fff'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><div><span style="font-size:11px;color:var(--t3);display:block">Попереднє</span><span style="font-size:13px;font-weight:500">Codey Rocky</span></div></a><a href="../index.html" style="flex:1;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:10px 14px;border:1px solid var(--b2);border-radius:var(--rs);background:var(--surf);text-decoration:none;color:#993C1D;font-weight:500"><div style="text-align:right"><span style="font-size:11px;color:var(--t3);display:block;font-weight:400">До каталогу</span><span style="font-size:13px">Усі проєкти</span></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-</main>
-<aside>
-  <div class="sec-card"><div class="side-ttl">Матеріали до заняття</div><a href="#" style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s" onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'"><div style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Презентація заняття</div><div style="font-size:11px;color:var(--t3)">Google Drive · PDF, 18 слайдів</div></div></a><a href="#" style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s" onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'"><div style="width:28px;height:28px;border-radius:6px;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Інструкція зі слайсингу в Cura</div><div style="font-size:11px;color:var(--t3)">Google Drive · DOCX</div></div></a><a href="https://www.meshy.ai" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s" onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'"><div style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Meshy.ai</div><div style="font-size:11px;color:var(--t3)">AI-генерація 3D онлайн</div></div></a><a href="https://ultimaker.com/software/ultimaker-cura" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s" onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'"><div style="width:28px;height:28px;border-radius:6px;background:#E6F1FB;color:#185FA5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Ultimaker Cura</div><div style="font-size:11px;color:var(--t3)">Безкоштовний слайсер</div></div></a><a href="#" style="display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--b1);border-radius:7px;text-decoration:none;margin-bottom:6px;transition:border-color .15s" onmouseover="this.style.borderColor='#993C1D'" onmouseout="this.style.borderColor='rgba(0,0,0,.10)'"><div style="width:28px;height:28px;border-radius:6px;background:#FAEEDA;color:#854F0B;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div><div style="font-size:12px;font-weight:500;color:var(--t1)">Відеозапис майстер-класу</div><div style="font-size:11px;color:var(--t3)">YouTube · 47 хв</div></div></a></div>
-  <div class="sec-card"><div class="side-ttl">Обладнання</div><div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)"><span style="color:var(--t2)">3D-принтер</span><span style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)"><span style="color:var(--t2)">Комп'ютер / ноутбук</span><span style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)"><span style="color:var(--t2)">Інтернет</span><span style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#FAECE7;color:#4A1B0C">обов'язково</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--b1)"><span style="color:var(--t2)">Смартфон / камера</span><span style="font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:var(--surf2);color:var(--t3)">опційно</span></div></div>
-  <div class="sec-card"><div class="side-ttl">Предмети</div><div style="display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Інформатика</span> <span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Технології</span> <span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Фізика</span> <span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Математика</span> <span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Біологія</span> <span style="font-size:11px;font-weight:500;padding:4px 9px;border-radius:12px;background:var(--surf2);color:var(--t2)">Мистецтво</span></div></div>
-  <div class="sec-card"><div class="side-ttl">Теги</div><div style="display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#E1F5EE;color:#04342C">3D-друк</span> <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#E6F1FB;color:#042C53">AI-інструменти</span> <span style="font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#FAEEDA;color:#412402">Meshy.ai</span></div></div>
-  <div class="sec-card"><div class="side-ttl">Рівень складності</div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px"><span>Технічна складність</span><span style="font-weight:500;color:var(--t1)">Середня</span></div><div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px"><div style="width:50%;height:100%;background:var(--amber-m);border-radius:3px"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px"><span>Залучення учнів</span><span style="font-weight:500;color:var(--t1)">Висока</span></div><div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px"><div style="width:90%;height:100%;background:var(--coral-m);border-radius:3px"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:4px"><span>Потреба в обладнанні</span><span style="font-weight:500;color:var(--t1)">Середня</span></div><div style="height:5px;background:var(--surf3);border-radius:3px;margin-bottom:10px"><div style="width:60%;height:100%;background:var(--amber-m);border-radius:3px"></div></div></div>
-</aside>
-</div>
-<footer class="site-footer"><p>STEM-лабораторія педагогічних практик · Запорізька область · 2024–2025</p></footer>
-<script src="../js/projects.js"></script><script src="../js/main.js"></script>
-</body></html>
+  <footer class="site-footer">
+    <p>STEM-лабораторія педагогічних практик · Запорізька область · 2024–2025</p>
+  </footer>
+  <script src="../js/projects.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
