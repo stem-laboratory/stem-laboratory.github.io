@@ -252,12 +252,12 @@ body {
   transition: opacity .9s ease; background-size: cover; background-position: center;
 }
 .carousel-slide.active { opacity: 1; }
-.slide-1 { background-color: #1a3525; background-image: url('../photos/photo1.png'); }
-.slide-2 { background-color: #0d2240; background-image: url('../photos/photo2.png'); }
-.slide-3 { background-color: #2a1a08; background-image: url('../photos/photo3.png'); }
-.slide-4 { background-color: #1a1a2a; background-image: url('../photos/photo4.png'); }
-.slide-5 { background-color: #2a0d0d; background-image: url('../photos/photo5.png'); }
-.slide-6 { background-color: #0d2a1a; background-image: url('../photos/photo6.png'); }
+.slide-1 { background-color: #659075; background-image: url('../photos/photo1.png'); }
+.slide-2 { background-color: #63738d; background-image: url('../photos/photo2.png'); }
+.slide-3 { background-color: #8e7a61; background-image: url('../photos/photo3.png'); }
+.slide-4 { background-color: #766185; background-image: url('../photos/photo4.png'); }
+.slide-5 { background-color: #825252; background-image: url('../photos/photo5.png'); }
+.slide-6 { background-color: #4a7873; background-image: url('../photos/photo6.png'); }
 .carousel-overlay {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(135deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.15) 100%);
