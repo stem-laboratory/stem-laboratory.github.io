@@ -42,11 +42,11 @@ photo1.jpg … photo6.jpg
 ### Крок 1 — Реєстрація
 
 - Зареєструйтесь на [github.com](https://github.com)
-- Username: **`stem-lab`** → адреса буде `https://stem-lab.github.io`
+- Username: **`stem-laboratory`** → адреса буде `https://stem-laboratory.github.io`
 
 ### Крок 2 — Репозиторій
 
-- **New repository** → назва: `stem-lab.github.io`
+- **New repository** → назва: `stem-laboratory.github.io`
 - Visibility: **Public**
 
 ### Крок 3 — Завантаження файлів
